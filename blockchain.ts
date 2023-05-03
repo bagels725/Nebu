@@ -16,5 +16,9 @@ class Block {
 }
 
 const genesisBlock: Block = new Block(
-  0, '816534932c2b7154836da6afc367695e6337db8a921823784c14378abed4f7d7', null, 1465154705, 'Forbes 30/Apr/2023 The Kingdom of Bhutan Has Quietly Been Mining Bitcoin For Years'
+  0, '81ac847e9373c8b80edcfb1d0e08da260a73d49b5f33c7c61d6c68a0800155ee', null, 1465154705, 'Forbes 30/4/23 The Kingdom of Bhutan Has Been Quietly Mining Bitcoin For Years'
 );
+
+const generateNextBlock = (blockData: string) => {
+  const previousBlock: Block = getLatestBlock();
+  const nextIndex

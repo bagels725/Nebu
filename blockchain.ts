@@ -68,5 +68,37 @@ const isValidChain = (blockchainToValidate: Block[]): boolean => {
   }
   return true;
 };
-                                                  
+
+const replaceChain = (newBlocks: Block[]) => {
+  if (isValidChain(newBlocks) && newBlocks.length > getBlockchain().length) {
+    console.log('Recieved blockchain as valid. Replacing current blockchain with recieved blockchain');
+    blockchain = newBlocks;
+    broadcastLatest();
+  } else {
+      console.log('Recieved blockchain as invalid');
+  }
+};
                                                
+const initHttpServer = ( myHttpPort: number ) => {
+  const app = express();
+  app.use(bodyParser.json());
+    
+  app.get('/blocks', (req, res) => {
+    res.send(getBlockchain());
+  });
+  app.post('/mintBlock', (req, res) => {
+    const newBlock: Block = generateNextBlock(req.body.data);
+    res.send(newBlock);
+  });
+  app.get('/peers', (req, res) => {
+    res.send(getSockets().map(( s: any ) => s._socket.remoteAddress + ':' + s._socket.remotePort));
+  });
+  app.post('/addPeer', (req, res) => {
+    connectToPeers(req.body.peers);
+    res.send();
+  });
+    
+  app.listen(myHttpPort, () => {
+    console.log('Listening http on port: ' + myHttpPort);
+  });
+};

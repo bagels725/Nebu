@@ -5,13 +5,20 @@ class Block {
   public previousHash: string;
   public timestamp: number;
   public data: string;
+  public difficulty: number;
+  public nonce: number;
+  public minterBalance: number; // hack to avoid recalculating minter balance at a given height
+  public minterAddress: string;
   
-  constructor(index: number, hash: string, previousHash: string, timestamp: number, data: string) {
+  constructor(index: number, hash: string, previousHash: string, timestamp: number, data: Transaction[], difficulty: number, minterBalance: number, minterAddress: string) {
     this.index = index;
     this.previousHash = previousHash;
     this.timestamp = timestamp;
     this.data = data;
     this.hash = hash;
+    this.difficulty = difficulty;
+    this.minterBalance = minterBalance;
+    this.minterAddress = minterAddress;
   }
 }
 
@@ -101,4 +108,4 @@ const initHttpServer = ( myHttpPort: number ) => {
   app.listen(myHttpPort, () => {
     console.log('Listening http on port: ' + myHttpPort);
   });
-};
+};  

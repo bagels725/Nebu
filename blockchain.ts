@@ -21,4 +21,52 @@ const genesisBlock: Block = new Block(
 
 const generateNextBlock = (blockData: string) => {
   const previousBlock: Block = getLatestBlock();
-  const nextIndex
+  const nextIndex: number = previousBlock.index + 1;
+  const nextTimestamp: number = new Date().getTime() / 1000;
+  const nextHash: string = calculateHash(nextIndex, previousBlock.hash, nextTimestamp, blockData);
+  const newBlock: Block = new Block(nextIndex, nextHash, previousBlock.hash, nextTimestamp, blockData);
+  return newBlock;
+};
+
+const blockchain: Block[] = [genesisBlock];
+
+const isValidNewBlock = (newBlock: Block, previousBlock: Block) => {
+  if (previousBlock.index +1 !== newBlock.index) {
+    console.log('Invalid index!');
+    return false;
+  } else if (previousBlock.hash !== newBlock.previousHash) {
+    console.log('Invalid previousHash!');
+    return false;
+  } else if (calculateHashForBlock(newBlock) !== newBlock.hash) {
+    console.log(typeof (newBlock.hash) + ' ' + typeof calculateHashForBlock(newBlock));
+    console.log('invalid hash: ' + calculateHashForBlock(newBlock) + ' ' + newBlock.hash);
+  }
+  return false;
+};
+
+const isValidBlockStructure = (block: Block): boolean => {
+  return typeof block.index === 'number'
+    && typeof block.hash === 'string'
+    && typeof block.previousHash === 'string'
+    && typeof block.timestamp === 'number'
+    && typeof block.data === 'string';
+};
+
+const isValidChain = (blockchainToValidate: Block[]): boolean => {
+  const isValidGenesis = (block: Block): boolean => {
+    return JSON.stringify(block) === JSON.stringify(genesisBlock);
+  };
+  
+  if (!isValidGenesis(blockchainToValidate[0])) {
+    return false;
+  }
+
+  for (let i = 1; i < blockchainToValidate.length; i++) {
+    if (!isValidNewBlock(blockchainToValidate[i], blockchainToValidate[i - 1])) {
+      return false;
+    }
+  }
+  return true;
+};
+                                                  
+                                               

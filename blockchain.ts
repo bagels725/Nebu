@@ -73,7 +73,7 @@ const isValidChain = (blockchainToValidate: Block[]): boolean => {
       return false;
     }
   }
-  return true;
+  return true; 
 };
 
 const replaceChain = (newBlocks: Block[]) => {
@@ -109,3 +109,7 @@ const initHttpServer = ( myHttpPort: number ) => {
     console.log('Listening http on port: ' + myHttpPort);
   });
 };  
+
+const calculatehash = (index: number, previousHash: string, timestamp: number, data: Transaction[], difficulty: number, minterBalance: number, minterAddress: string): string => CryptoJS.SHA256(index + previousHash + timestamp + data + difficulty + minterBalance + minterAddress).toString();
+
+const isBlockStakingValid

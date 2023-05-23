@@ -10,7 +10,7 @@ I intend for Nebu to be a highly simple open-source cryptocurrency that's mainly
 
   -1. PoS is a lot less computationally intensive than PoW, meaning it consumes a lot less electricity and is better for the environment. I do not want a mostly-for-fun cryptocoin to be as environmentally damaging as fully serious cryptos like Bitcoin are.
   
-  -2. I think PoS is more fair than PoW since it prioritizes those who have staked more rather than those who have more computational power, which allows for significant democratization. Some people will say that PoS creates a risk of centralization, but for a sufficiently developed cryptocurrency it would take a *lot* of money to stake enough to have a more-than-trivial chance of winning the validating lottery. And besides, the worst nightmare for PoS critics has already come true with centralized crypto exchanges becoming the norm over the years.
+  -2. I think PoS is more fair than PoW since it prioritizes those who have staked more rather than those who have more computational power, which allows for significant democratization. Some people will say that PoS creates a risk of centralization, but for a sufficiently developed cryptocurrency it would take a *lot* of money to stake enough to have a more-than-trivial chance of consistently winning the validating lottery. And besides, the worst nightmare for PoS critics has already come true with centralized crypto exchanges becoming the norm over the years.
   
   -3. I like the aesthetics of proof-of-stake over proof-of-work (e.g. I think "minting" sounds nicer than "mining"). That probably makes me sound like a weird person, but aren't we all? Anyway...
 

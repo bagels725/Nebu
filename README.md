@@ -2,7 +2,7 @@
 
 🚨 WORK IN PROGRESS 🚨
 
-Nebu (from the name of the Ancient Egyptian symbol for gold) is a semi-serious proof-of-stake cryptocurrency written in Python.
+Nebu (from the name of the Ancient Egyptian symbol for gold) is a semi-serious proof-of-stake cryptocurrency.
 
 # Nebu Whitepaper (if you could really call it that)
 

@@ -41,17 +41,23 @@ const blockchain: Block[] = [genesisBlock];
 const isValidNewBlock = (newBlock: Block, previousBlock: Block) => {
   if (previousBlock.index + 1 !== newBlock.index) {
     console.log('OOPS! Invalid index.');
-    return False;
+    return false;
   } else if (previousBlock.hash !== newBlock.previousHash) {
       console.log('OOPS! Invalid previousHash!');
-      return False;
+      return false;
   } else if (calculateHashForBlock(newBlock) !== newBlock.hash) {
       console.log(typeof (newBlock.hash+ + ' ' + typeof calculateHashForBlock(newBlock));
-      
+      console.log('OOPS! Invalid Hash: ' + calculateHashForBlock(newBlock) + ' ' + newBlock.hash);
+      return false;
+  }
+  return true;
+};
 
-
-
-
+# Validate block structure to check for malformed content.
+const isValidBlockStructure = (block: Block): boolean => {
+  return typeof block.index === 'number'
+      && typeof block.hash === 'string'
+      && typeof block.previousHash
 
 
 

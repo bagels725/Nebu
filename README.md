@@ -2,7 +2,7 @@
 
 🚨 WORK IN PROGRESS 🚨
 
-Nebu (from the name of the Ancient Egyptian symbol for gold) is a semi-serious proof-of-stake cryptocurrency.
+Nebu (from the name of the Ancient Egyptian symbol for gold) is a semi-serious proof-of-stake cryptocurrency. It is based off of NaivecoinStake (naivecoinstake.learn.uno).
 
 # Nebu Whitepaper (if you could really call it that)
 

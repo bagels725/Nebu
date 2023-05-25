@@ -1,0 +1,4 @@
+25-5-2023:
+
+1. NaivecoinStake appears to have a simplified interpretation of Proof of Stake. It doesn't have advanced features such as staking some of your coins in a smart contract or slashing those coins if you incorrectly validate a block. It seems to randomly choose nodes as validators, with nodes that have more coins to their name having a greater chance of being chosen. I originally got confused by the parts about difficulty at the bottom of the
+Proof of Stake chapter because that's associated with Proof of Work. PoW difficulty refers to the effort it takes to brute-force incremented numbers into a hash that starts with a certain number of 0's. NcS's difficulty just means the time it takes for a new block to be added to the blockchain.

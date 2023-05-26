@@ -1,3 +1,7 @@
 25-5-2023:
 
 1. NaivecoinStake appears to have a simplified interpretation of Proof of Stake. It doesn't have advanced features such as staking some of your coins in a smart contract or slashing those coins if you incorrectly validate a block. It seems to randomly choose nodes as validators, with nodes that have more coins to their name having a greater chance of being chosen. I originally got confused by the parts about difficulty at the bottom of the Proof of Stake chapter because that's associated with Proof of Work. PoW difficulty refers to the effort it takes to brute-force incremented numbers into a hash that starts with a certain number of 0's. NcS's difficulty just means the time it takes for a new block to be added to the blockchain.
+
+2. The lack of any punishment feature is worrying, as there is nothing to discourage malicious nodes to attempt creating false transactions. As far as I know, the only thing preventing attackers from exploiting vulnerabilities is raw security measures themselves. This means if there are holes in the security measures, there is no fallback to mantain the financial disincentive to cheating.
+
+3. I noticed that NaivecoinStake doesn't have any supply limit. Setting one probably isn't a high priority though, if I'm gonna be honest. Dogecoin doesn't have a supply limit if I remember correctly, but it still has a non-trivial value at the time of writing (about 7 cents).

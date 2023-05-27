@@ -1,3 +1,5 @@
+DEV'S NOTE 26-5-2023: READ AT YOUR OWN PERIL. This doesn't really have anything of importance other than my clumsy ass trying to figure out how digital doubloons do their thing.
+
 25-5-2023:
 
 1. NaivecoinStake appears to have a simplified interpretation of Proof of Stake. It doesn't have advanced features such as staking some of your coins in a smart contract or slashing those coins if you incorrectly validate a block. It seems to randomly choose nodes as validators, with nodes that have more coins to their name having a greater chance of being chosen. I originally got confused by the parts about difficulty at the bottom of the Proof of Stake chapter because that's associated with Proof of Work. PoW difficulty refers to the effort it takes to brute-force incremented numbers into a hash that starts with a certain number of 0's. NcS's difficulty just means the time it takes for a new block to be added to the blockchain.
@@ -23,3 +25,7 @@ Query connected peers: curl http://localhost:3001/peers
 I should probably make a GUI to streamline typing these commands. I suppose that GUI could be "Nebu Core", like how Bitcoin has Bitcoin Core. Although, I'm not sure if it would require more doohickeys than NcS's default wallet UI, or if the stuff nodes do with validating transactions is automated.
 
 2. I just realized that NaivecoinStake does staking based on how much a *node* owns, not a wallet. A wallet can just exist as a keypair and still hold a balance because it has coins to its name on the blockchain. It's the coins associated with a node's keypair that is what's staked.
+
+3. Bad actors may be prevented from using tampered node software if the majority of nodes are honest. I think nodes might be able to tell if a bad node, say, changed the coinbase transaction (minting reward) from 50 to 1 gorillion by looking at its hash. An idea I have is including the coinbase tx amount in the block. The amount would be permanently determined in the genesis block.
+
+4. Lmao nevermind I just got it. If a majority of nodes are honest and have their coinbase amt set to 50, the majority of them will consider transactions with modified coinbase transactions as invalid. Furthermore, any malicious node with a different coinbase amount will reject honest transactions made by the majority, and thus they would have nothing to validate if it's their turn to mint a block on the blockchain. If a minter can't somehow validate their transaction pool, this may be where that fun little slashing function comes in that nukes a node's balance.

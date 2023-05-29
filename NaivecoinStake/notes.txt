@@ -29,3 +29,5 @@ I should probably make a GUI to streamline typing these commands. I suppose that
 3. Bad actors may be prevented from using tampered node software if the majority of nodes are honest. I think nodes might be able to tell if a bad node, say, changed the coinbase transaction (minting reward) from 50 to 1 gorillion by looking at its hash. An idea I have is including the coinbase tx amount in the block. The amount would be permanently determined in the genesis block.
 
 4. Lmao nevermind I just got it. If a majority of nodes are honest and have their coinbase amt set to 50, the majority of them will consider transactions with modified coinbase transactions as invalid. Furthermore, any malicious node with a different coinbase amount will reject honest transactions made by the majority, and thus they would have nothing to validate if it's their turn to mint a block on the blockchain. If a minter can't somehow validate their transaction pool, this may be where that fun little slashing function comes in that nukes a node's balance.
+
+5. Idea: Make an easy-to-use installer for node.js and requirements.
